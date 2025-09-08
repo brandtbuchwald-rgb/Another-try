@@ -1,82 +1,71 @@
 body {
-  font-family: Arial, sans-serif;
   background: #111;
-  color: #eee;
+  color: #fff;
+  font-family: Arial, sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
   padding: 20px;
 }
 
 h1 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .tabs {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-  flex-wrap: wrap;
+  margin: 15px 0;
 }
 
-.tablink {
+.tab-button {
   background: #333;
   color: #fff;
-  border: 1px solid #444;
+  border: none;
   padding: 10px 15px;
+  margin: 2px;
   cursor: pointer;
 }
 
-.tablink.active {
-  background: #66ccff;
-  color: #000;
-  font-weight: bold;
+.tab-button.active {
+  background: #33aaff;
 }
 
-.tabcontent {
+.tab-content {
   display: none;
-  padding: 10px;
-  border: 1px solid #444;
   background: #222;
-  margin-top: 10px;
-}
-
-.tabcontent.active {
-  display: block;
-}
-
-.gear-block label {
-  display: block;
+  padding: 15px;
   margin: 10px 0;
+  border-radius: 5px;
 }
 
-select, input[type="number"] {
+.tab-content.active {
+  display: block;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+select, input {
+  padding: 5px;
   margin-left: 5px;
-  padding: 3px;
 }
 
 #calcBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #66ccff;
-  color: #000;
+  background: #33aaff;
   border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
 }
 
 #results {
-  margin-top: 25px;
+  margin-top: 20px;
   background: #222;
   padding: 15px;
-  border: 1px solid #444;
-}
-
-#results ul {
-  list-style: none;
-  padding: 0;
-}
-
-#results li {
-  margin: 5px 0;
-  font-size: 18px;
+  border-radius: 5px;
 }
