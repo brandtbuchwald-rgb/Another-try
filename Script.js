@@ -1,57 +1,55 @@
-// Build dropdowns + inputs dynamically (4 per gear)
-const stats = ["Attack Speed", "Crit Chance", "Evasion", "Crit Damage"];
-document.querySelectorAll(".gear-block").forEach(block => {
-  const gear = block.dataset.gear;
-  for (let i = 1; i <= 4; i++) {
-    const label = document.createElement("label");
-    label.innerHTML = `Line ${i}: `;
+// List of possible stats
+const statOptions = ["HP", "Attack", "Defense", "Crit Rate", "Crit Damage"];
+
+// Setup dropdowns for each gear piece
+document.querySelectorAll(".stat-inputs").forEach(div => {
+  for (let i = 0; i < 4; i++) {
+    const row = document.createElement("div");
+    row.classList.add("stat-row");
+
     const select = document.createElement("select");
-    select.id = `${gear}_stat${i}`;
-    stats.forEach(s => {
-      const opt = document.createElement("option");
-      opt.value = s;
-      opt.textContent = s;
-      select.appendChild(opt);
+    statOptions.forEach(stat => {
+      const option = document.createElement("option");
+      option.value = stat;
+      option.textContent = stat;
+      select.appendChild(option);
     });
+
     const input = document.createElement("input");
     input.type = "number";
     input.value = 0;
-    input.id = `${gear}_val${i}`;
-    label.appendChild(select);
-    label.appendChild(input);
-    block.appendChild(label);
+
+    row.appendChild(select);
+    row.appendChild(input);
+    div.appendChild(row);
   }
 });
 
 // Tab switching
-document.querySelectorAll(".tablink").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".tablink").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".tabcontent").forEach(c => c.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.tab).classList.add("active");
+document.querySelectorAll(".tab-button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".tab-button").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+    button.classList.add("active");
+    document.getElementById(button.dataset.tab).classList.add("active");
   });
 });
 
 // Calculate totals
 document.getElementById("calcBtn").addEventListener("click", () => {
   const totals = {};
-  document.querySelectorAll(".gear-block").forEach(block => {
-    const gear = block.dataset.gear;
-    for (let i = 1; i <= 4; i++) {
-      const stat = document.getElementById(`${gear}_stat${i}`).value;
-      const val = parseFloat(document.getElementById(`${gear}_val${i}`).value) || 0;
-      if (!totals[stat]) totals[stat] = 0;
-      totals[stat] += val;
-    }
+  document.querySelectorAll(".stat-inputs").forEach(section => {
+    section.querySelectorAll(".stat-row").forEach(row => {
+      const stat = row.querySelector("select").value;
+      const val = parseInt(row.querySelector("input").value) || 0;
+      totals[stat] = (totals[stat] || 0) + val;
+    });
   });
 
   // Show results
-  const resultsList = document.getElementById("resultsList");
-  resultsList.innerHTML = "";
+  let output = "";
   for (const [stat, val] of Object.entries(totals)) {
-    const li = document.createElement("li");
-    li.textContent = `${stat}: ${val.toFixed(2)}`;
-    resultsList.appendChild(li);
+    output += `${stat}: ${val}\n`;
   }
+  document.getElementById("totals").textContent = output || "No stats entered.";
 });
