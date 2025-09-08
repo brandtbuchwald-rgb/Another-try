@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.tablink {
+  background: #333;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.tablink.active {
+  background: #66ccff;
+  color: #000;
+  font-weight: bold;
+}
+
+.tabcontent {
+  display: none;
+  padding: 10px;
+  border: 1px solid #444;
+  background: #222;
+  margin-top: 10px;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.gear-block label {
+  display: block;
+  margin: 10px 0;
+}
+
+select, input[type="number"] {
+  margin-left: 5px;
+  padding: 3px;
+}
+
+#calcBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #66ccff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#results {
+  margin-top: 25px;
+  background: #222;
+  padding: 15px;
+  border: 1px solid #444;
+}
+
+#results ul {
+  list-style: none;
+  padding: 0;
+}
+
+#results li {
+  margin: 5px 0;
+  font-size: 18px;
+}
