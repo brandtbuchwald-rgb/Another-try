@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EHT Gear Optimizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Evil Hunter Tycoon - Gear Optimizer</h1>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tablink active" data-tab="helm">Helm</button>
+    <button class="tablink" data-tab="armor">Armor</button>
+    <button class="tablink" data-tab="gloves">Gloves</button>
+    <button class="tablink" data-tab="boots">Boots</button>
+    <button class="tablink" data-tab="weapon">Weapon</button>
+  </div>
+
+  <!-- Gear sections -->
+  <div id="helm" class="tabcontent active">
+    <h3>Helm</h3>
+    <div class="gear-block" data-gear="helm"></div>
+  </div>
+
+  <div id="armor" class="tabcontent">
+    <h3>Armor</h3>
+    <div class="gear-block" data-gear="armor"></div>
+  </div>
+
+  <div id="gloves" class="tabcontent">
+    <h3>Gloves</h3>
+    <div class="gear-block" data-gear="gloves"></div>
+  </div>
+
+  <div id="boots" class="tabcontent">
+    <h3>Boots</h3>
+    <div class="gear-block" data-gear="boots"></div>
+  </div>
+
+  <div id="weapon" class="tabcontent">
+    <h3>Weapon</h3>
+    <div class="gear-block" data-gear="weapon"></div>
+  </div>
+
+  <!-- Button -->
+  <button id="calcBtn">Calculate Stats</button>
+
+  <!-- Results -->
+  <div id="results">
+    <h2>Total Stats</h2>
+    <ul id="resultsList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
